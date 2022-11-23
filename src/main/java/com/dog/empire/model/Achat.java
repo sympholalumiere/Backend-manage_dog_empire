@@ -26,9 +26,9 @@ public class Achat extends TrackingEntity {
 	private String designation;
 	@Column(name="prix_achat" , nullable = true)
 	private int prix;
-/*	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private User user;*/
+	private User user;
 
 
 }

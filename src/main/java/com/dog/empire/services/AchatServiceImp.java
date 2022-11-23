@@ -28,12 +28,12 @@ public class AchatServiceImp implements AchatService{
 
 	@Override
 	public Achat getAchatById(Long id) {
-		   Optional<Achat> opt = achatDao.findById(id);
-		    if(opt.isPresent()) {
-		        return opt.get();
-		    } else {
-		        throw new AnimalNotFoundException("achat avec id : "+id+" n'exixte pas");
-		    }
+			   Optional<Achat> opt = achatDao.findById(id);
+				if(opt.isPresent()) {
+					return opt.get();
+				} else {
+					throw new AnimalNotFoundException("achat avec id : "+id+" n'exixte pas");
+				}
 	}
 	
 

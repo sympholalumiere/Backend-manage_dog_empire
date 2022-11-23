@@ -29,9 +29,9 @@ public class Vente extends TrackingEntity{
 	private Date datevente;
 	@Column(name= "montantdelavente")
 	private Double montant;
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
    
    @ManyToOne
     @JoinColumn(name = "idanimal")

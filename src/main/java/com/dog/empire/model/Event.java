@@ -1,11 +1,15 @@
 package com.dog.empire.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -15,15 +19,22 @@ import java.time.LocalDateTime;
 public class Event {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Long id;
-
-    @Column(name = "text")
+    Long idEvent;
+    @Column(name = "text", nullable = false)
     String text;
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "debut", nullable = false)
+    @JsonIgnore
+    private Date debut;
 
-    @Column(name = "start")
-    LocalDateTime start;
-    @Column(name = "end")
-    LocalDateTime end;
-    @Column(name = "color")
+    @LastModifiedDate
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "fin")
+    @JsonIgnore
+    private Date fin;
+
+    @Column(name = "color", nullable = false)
     String color;
 }

@@ -1,4 +1,3 @@
-/*
 package com.dog.empire.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -17,11 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(	name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "email")
-        })
+@Table(	name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,16 +24,9 @@ public class User {
     private String username;
     private String email;
     private String password;
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(	name = "user_roles",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private Set<Role> roles = new HashSet<>();
-
     @OneToMany(mappedBy = "user")
     private List<Vente> vente;
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
     private Collection<Achat> achat;
 
 }
-*/

@@ -24,13 +24,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "vendeurs")
 public class Vendeur extends TrackingEntity {
-   
+
+    @Column(name = "nom", nullable = false)
+    private String nom;
+    @Column(name = "prenom", nullable = false)
+    private String prenom;
 	private static final long serialVersionUID = 1L;
 	@Embedded // cette anotation c'est pour signifier que nous avons a faire a un champ composé;
     private Adresse adresse;
+
     @Column(name = "email", nullable = false)
-    
     private String email;
+
     @Column(name = "nationalite", nullable = false)
     
     private String nationalite;
