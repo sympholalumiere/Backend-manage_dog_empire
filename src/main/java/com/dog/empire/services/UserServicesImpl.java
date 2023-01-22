@@ -1,10 +1,12 @@
 package com.dog.empire.services;
 
+import com.dog.empire.dao.AchatDao;
 import com.dog.empire.dao.UserDao;
 import com.dog.empire.exception.AnimalNotFoundException;
 import com.dog.empire.exception.UserNotFoundException;
 import com.dog.empire.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +17,12 @@ import java.util.Optional;
 @Service
 public class UserServicesImpl implements UserService{
     private UserDao userDao;
+    private AchatDao achatDao;
 
     @Autowired
-    public UserServicesImpl(UserDao userDao) {
+    public UserServicesImpl(UserDao userDao,AchatDao achatDao) {
         this.userDao = userDao;
+        this.achatDao = achatDao;
     }
 
     @Override
@@ -27,8 +31,8 @@ public class UserServicesImpl implements UserService{
     }
 
     @Override
-    public Optional<User> findById(Long id) {
-        return userDao.findById(id);
+    public Optional<User> findById(Long userId) {
+        return userDao.findById(userId);
     }
 
     @Override
@@ -53,15 +57,27 @@ public class UserServicesImpl implements UserService{
     }
 
     @Override
-    public User updateUser(User user, Long iduser) {
+    public User updateUser(User user, Long userId) {
         User userDB
-                = userDao.findById(iduser).get();
+                = userDao.findById(userId).get();
         return userDao.save(userDB);
     }
 
     @Override
-    public void deleteUserById(Long iduser) {
-        userDao.deleteById(iduser);
+    public void deleteUserById(Long userId) {
+        userDao.deleteById(userId);
 
     }
+
+
+
+   /* @Override
+    public ResponseEntity<?> getAllUserAchat(Long userId) {
+        Optional<User> user = userDao.findById(userId);
+        if (user.isPresent()){
+            return ResponseEntity.status(200).body(achatDao.findAchatByUser(userId));
+        }else {
+            return ResponseEntity.status(401).body("User with this ID doesn't exist");
+        }
+    }*/
 }

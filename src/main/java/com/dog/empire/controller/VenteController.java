@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,10 +28,10 @@ import com.dog.empire.services.VenteService;
 @Component
 @RestController
 public class VenteController {
-	 @Autowired 
+	 @Autowired
 	 private VenteService venteService;
 	 //creer une methode de recuperation de tous les animaux depuis la BD
-		
+
 		@GetMapping(value ="/vente/liste")
 		public List<Vente> getAllVente(){
 			 List<Vente> liste= new ArrayList<>();
@@ -79,5 +80,14 @@ public class VenteController {
 		 venteService.deleteVenteById( idvente);
 	     return "Deleted Successfully";
 	 }
+
+	@PutMapping(path = "/modifie_vente/{idVente}/assign/{userId}")
+	public ResponseEntity<?> assignVenteToUser(
+			@PathVariable Long idVente,
+			@PathVariable Long userId
+	) {
+		venteService.assignVenteToUser(idVente, userId);
+		return ResponseEntity.noContent().build();
+	}
 
 }

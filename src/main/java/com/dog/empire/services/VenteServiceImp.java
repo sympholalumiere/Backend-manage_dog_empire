@@ -3,6 +3,8 @@ package com.dog.empire.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.dog.empire.dao.UserDao;
+import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ public class VenteServiceImp implements VenteService {
 	//Annotation
 		 @Autowired
 		 private VenteDao venteDao;
+		 private UserDao userDao;
 	@Override
 	public Vente saveVente(Vente vente) {
 		return venteDao.save(vente);
@@ -48,13 +51,22 @@ public class VenteServiceImp implements VenteService {
 		Vente venteDB
         = venteDao.findById(idvente).get();
 		 return venteDao.save(venteDB);
-		
+
 	}
 
 	@Override
 	public void deleteVenteById(Long idvente) {
 		venteDao.deleteById(idvente);
-		
+
 	}
+
+	@Override
+	public Vente assignVenteToUser(Long idVente, Long userId) {
+		var vente = venteDao.findById(idVente).get();
+		var user = userDao.findById(userId).get();
+		vente.assignUser(user);
+		return vente;
+	}
+
 
 }

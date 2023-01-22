@@ -26,7 +26,7 @@ public class Adresse {
 	    @Column(name = "pays")
 	    private String pays;
 
-	    @Column(name = "telephone")
+	    @Column(name = "telephone", nullable = false)
 	    private String telephone;
 
 

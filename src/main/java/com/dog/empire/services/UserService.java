@@ -4,6 +4,7 @@ package com.dog.empire.services;
 
 import com.dog.empire.exception.UserNotFoundException;
 import com.dog.empire.model.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface UserService {
     User saveUser(User user);
 
     //get by id
-    public Optional<User> findById(Long id);
+    public Optional<User> findById(Long userId);
 
     User findUserByUsername(String username) throws UserNotFoundException;
 
@@ -24,8 +25,9 @@ public interface UserService {
     public List<User> getAllUsers();
 
     // Update operation
-    User updateUser(User user, Long iduser);
+    User updateUser(User user, Long userId);
 
     // Delete operation
-    void deleteUserById(Long iduser);
+    void deleteUserById(Long userId);
+  //  ResponseEntity<?> getAllUserAchat(Long userId);
 }

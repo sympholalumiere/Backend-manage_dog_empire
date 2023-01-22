@@ -1,0 +1,14 @@
+UTILISATEURS:
+-> creer la classe user #
+-> chaque user doit avoir l'historique des ventes en sachant qu'on pourras assigner une ou plusieurs vente à un utilisateur;
+-> chaque user doit voir l'historique des achats en sachant qu'on pourras assigner un ou plusieurs achat à un utilisateur; #
+-> chaque user doit voir son bénéfice(ventes - achats)/3 ;
+CLIENTS:
+-> creer la classe client + CRUD;
+-> Pour chaque client nous devons savoir qui l'a ammener vers nous, à combien il as acheter, et quel est le chien qu'il as pris;
+ANIMAL (chiens):
+-> creer la classe animal + Crud;
+-> pour chaque chien nous devons avoir ses origines ( nom du père et nom de la mère et leurs race d'origine);
+-> pour chaque chiens nous devons savoir le nombre de mise bat et le nombre de chiot par mise bat;
+-> pour chaque chien nous devons connaitre son propriétaire;
+

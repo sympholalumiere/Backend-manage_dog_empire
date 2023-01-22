@@ -43,9 +43,9 @@ public class UserController {
     //
     @RequestMapping(value="user/{id}",method=RequestMethod.GET)
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public Optional<User> getUserlById(@PathVariable("id") Long id) {
+    public Optional<User> getUserlById(@PathVariable("id") Long userId) {
 
-        return userService.findById(id);
+        return userService.findById(userId);
     }
 
     // tous les animaux
@@ -57,12 +57,12 @@ public class UserController {
     }
 
     // Update operation
-    @PutMapping("user/modifie_user/{id}")
+    @PutMapping("user/modifie_user/{userId}")
 
-    public User updateUser(@RequestBody User user, @PathVariable("id") Long iduser)
+    public User updateUser(@RequestBody User user, @PathVariable("id") Long userId)
     {
         return userService.updateUser(
-                user, iduser);
+                user, userId);
     }
 
     // Delete operation

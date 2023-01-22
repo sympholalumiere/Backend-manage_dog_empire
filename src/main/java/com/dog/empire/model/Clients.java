@@ -27,10 +27,10 @@ public class Clients extends TrackingEntity{
     private Adresse adresse;
 	 @Column(name = "nom", nullable = false)
 	    private String nom;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email")
     private String email;
     
-    @Column(name = "nationalite", nullable = false)
+    @Column(name = "nationalite")
     private String nationalite;
     
     @OneToMany(mappedBy = "clients")
