@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/api/dogempire/")
 
@@ -66,11 +66,11 @@ public class UserController {
     }
 
     // Delete operation
-    @DeleteMapping("user/{id}")
+    @DeleteMapping("user/delete/{userId}")
 
-    public String deleteUserById(@PathVariable("id") Long iduser)
+    public String deleteUserById(@PathVariable("userId") Long userId)
     {
-        userService.deleteUserById( iduser);
+        userService.deleteUserById( userId);
         return "Deleted Successfully";
     }
 }
