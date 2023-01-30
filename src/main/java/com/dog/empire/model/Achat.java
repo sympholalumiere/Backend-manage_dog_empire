@@ -14,6 +14,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.Instant;
+import java.util.Date;
 
 
 @Data
@@ -40,17 +41,17 @@ public class Achat{
 	@Column(name="prix_achat" , nullable = false)
 	private int prix;
 
-	@DateTimeFormat
+
 	@CreatedDate
 	@Column(name = "dateAchat", nullable = false)
-	private Instant dateAchat;
+	private Date dateAchat;
 
 
 	@ManyToOne
 	@JoinColumn(name="id_user", referencedColumnName = "userId")
 	private User user;
 
-	public Achat(String designation, int prix, User user, Instant dateAchat) {
+	public Achat(String designation, int prix, User user, Date dateAchat) {
 		this.designation = designation;
 		this.prix = prix;
 		this.dateAchat = dateAchat;
@@ -98,11 +99,11 @@ public class Achat{
 		this.user = user;
 	}
 
-	public Instant getDateAchat() {
+	public Date getDateAchat() {
 		return dateAchat;
 	}
 
-	public Achat setDateAchat(Instant dateAchat) {
+	public Achat setDateAchat(Date dateAchat) {
 		this.dateAchat = dateAchat;
 		return this;
 	}

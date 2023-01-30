@@ -37,11 +37,11 @@ public class Vendeur extends TrackingEntity {
     private String email;
 
     @Column(name = "nationalite", nullable = false)
-    
+
     private String nationalite;
     private String password;
-    @OneToMany(mappedBy = "vendeur")
-    private List<Vente> vente;
+    /*@OneToMany(mappedBy = "vendeur")
+    private List<Vente> vente;*/
     @ManyToOne
     @JoinColumn(name = "identreprise")
     private Entreprise entreprise;

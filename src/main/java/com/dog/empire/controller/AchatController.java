@@ -56,11 +56,10 @@ public class AchatController {
 	}
 
 	//
-	@RequestMapping(value = "/achats/{id}", method = RequestMethod.GET)
-	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	public Achat getAchatById(@PathVariable("id") Long id) {
+	@RequestMapping(value = "/{idAchat}", method = RequestMethod.GET)
+	public Achat getAchatById(@PathVariable("idAchat") Long idAchat) {
 
-		return achatService.getAchatById(id);
+		return achatService.getAchatById(idAchat);
 	}
 
 	// tous les animaux
@@ -71,22 +70,22 @@ public class AchatController {
 	}
 
 	// Update operation
-	@PutMapping("/modifie_achat/{id}")
+	@PutMapping("/modifie_achat/{idAchat}")
 
-	public Achat updateAchat(@RequestBody Achat achat, @PathVariable("id") Long idachat) {
+	public Achat updateAchat(@RequestBody Achat achat, @PathVariable("idAchat") Long idAchat) {
 		return achatService.updateAchat(
-				achat, idachat);
+				achat, idAchat);
 	}
 
 	// Delete operation
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/delete/{idAchat}")
 
-	public String deleteAchatById(@PathVariable("id") Long idachat) {
-		achatService.deleteAchatById(idachat);
+	public String deleteAchatById(@PathVariable("idAchat") Long idAchat) {
+		achatService.deleteAchatById(idAchat);
 		return "Deleted Successfully";
 	}
 
-	@PutMapping(path = "/assign_achat/{idAchat}/user/{userId}")
+	@PutMapping(path = "6")
 	public ResponseEntity<?> assignAchatToUser(
 			@PathVariable Long idAchat,
 			@PathVariable Long userId

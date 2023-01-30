@@ -40,9 +40,9 @@ public class Vente {
     @JoinColumn(name = "idanimal")
     private Animal animal;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "idvendeur")
-    private Vendeur vendeur;
+    private Vendeur vendeur;*/
 
 
     @ManyToOne
@@ -66,7 +66,7 @@ public class Vente {
         this.montant = montant;
         this.user = user;
         this.animal = animal;
-        this.vendeur = vendeur;
+       // this.vendeur = vendeur;
         this.clients = clients;
     }
 
@@ -115,14 +115,14 @@ public class Vente {
         return this;
     }
 
-    public Vendeur getVendeur() {
+  /*  public Vendeur getVendeur() {
         return vendeur;
     }
 
     public Vente setVendeur(Vendeur vendeur) {
         this.vendeur = vendeur;
         return this;
-    }
+    }*/
 
     public Seller getSeller() {
         return seller;
